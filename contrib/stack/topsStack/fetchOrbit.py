@@ -131,6 +131,9 @@ if __name__ == '__main__':
     '''
 
     inps = cmdLineParse()
+    username = inps.username
+    password = inps.password
+    token_file = os.path.expanduser(inps.token_file)
 
     fileTS, satName, fileTSStart = FileToTimeStamp(inps.input)
     print('Reference time: ', fileTS)
@@ -183,10 +186,6 @@ if __name__ == '__main__':
             break
 
     if match is not None:
-
-        username = inps.username
-        password = inps.password
-        token_file = os.path.expanduser(inps.token_file)
 
         token_data = get_saved_token_data(token_file)
         if token_data and is_token_valid(token_data):
